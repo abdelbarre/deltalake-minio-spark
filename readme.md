@@ -1,5 +1,5 @@
 ### Readme
-
+![alt text](minio.png)
 #### Description:
 This project demonstrates how to use Apache Spark with Delta Lake to interact with Minio, an object storage service, for data storage and manipulation. The setup involves configuring Spark to work with Delta Lake and Minio, and then writing data from a CSV file to Minio in Delta format using Spark.
 
@@ -15,6 +15,8 @@ This project demonstrates how to use Apache Spark with Delta Lake to interact wi
 3. Navigate to the project directory containing the docker-compose.yml file.
 4. Run `docker-compose up` to start the services defined in the docker-compose file.
 5. Access Jupyter notebook through `http://localhost:8890` to execute the provided code.
+
+
 
 #### Usage:
 1. After setting up the Docker containers, access Jupyter notebook through the provided URL.
