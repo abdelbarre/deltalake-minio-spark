@@ -1,0 +1,54 @@
+version: '3'
+services:
+
+  # --------------------------- #
+  # Apache Spark with Delta     #
+  # --------------------------- #
+  spark:
+    container_name: spark-master-minio  
+    image: docker.io/bitnami/spark:3.3
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - '8095:8095'
+      - '4041:4041'
+      - '7074:7074'
+    volumes:
+      - ./data:/data
+      - ./src:/src
+  spark-worker:
+    container_name: spark-worker-minio
+    image: docker.io/bitnami/spark:3.3
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7074
+      - SPARK_WORKER_MEMORY=4G
+      - SPARK_EXECUTOR_MEMORY=4G
+      - SPARK_WORKER_CORES=4
+    volumes:
+      - ./data:/data
+      - ./src:/src 
+
+  jupyter:
+    container_name: jupyter-minio
+    image: jupyter/pyspark-notebook
+    ports:
+      - '8890:8888'
+    volumes:
+      - ./data:/data
+
+  minio:
+    container_name: spark-minio 
+    image: quay.io/minio/minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+   
+    volumes:
+      - './minio_data:/data'
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=adminadminadmin
+      - MINIO_DEFAULT_BUCKETS=your_bucket_name
+    command: server --console-address ":9001" /data
+      
