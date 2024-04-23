@@ -22,10 +22,14 @@ This project demonstrates how to use Apache Spark with Delta Lake to interact wi
 3. Modify the code as needed for your specific use case, such as changing the access key, secret key, endpoint, or file paths.
 
 #### Components:
-- **Apache Spark with Delta**: Used for data processing and interacting with Delta Lake.
-- **Minio**: Object storage service used as the data source.
-- **Jupyter Notebook**: Provides an interactive environment for executing Python code.
-- **Docker Compose**: Defines the services required for running the project in containers.
+
+- **Apache Spark with Delta**: Apache Spark is a powerful analytics engine for big data processing, while Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing. Together, they enable efficient data processing and management.
+
+- **Minio**: Minio is an open-source object storage server compatible with Amazon S3 cloud storage service. It is used here as the data storage solution, allowing for scalable and distributed storage of files in buckets.
+
+- **Jupyter Notebook**: Jupyter Notebook is an interactive computing environment that allows users to create and share documents containing live code, equations, visualizations, and narrative text. It provides an easy-to-use interface for running Python code snippets and visualizing data.
+
+- **Docker Compose**: Docker Compose is a tool for defining and running multi-container Docker applications. It allows developers to define the services, networks, and volumes required for their application in a single YAML file and then spin up the entire application stack with a single command.
 
 #### Configuration:
 - Ensure that Minio is running and accessible at `http://localhost:9000`.
