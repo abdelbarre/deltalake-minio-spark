@@ -1,5 +1,5 @@
 ### Readme
-![alt text](minio.png)
+![alt text](./img/minio.png)
 #### Description:
 This project demonstrates how to use Apache Spark with Delta Lake to interact with Minio, an object storage service, for data storage and manipulation. The setup involves configuring Spark to work with Delta Lake and Minio, and then writing data from a CSV file to Minio in Delta format using Spark.
 
