@@ -29,14 +29,6 @@ services:
       - ./data:/data
       - ./src:/src 
 
-  jupyter:
-    container_name: jupyter-minio
-    image: jupyter/pyspark-notebook
-    ports:
-      - '8890:8888'
-    volumes:
-      - ./data:/data
-
   minio:
     container_name: spark-minio 
     image: quay.io/minio/minio
@@ -48,7 +40,7 @@ services:
       - './minio_data:/data'
     environment:
       - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=adminadminadmin
+      - MINIO_ROOT_PASSWORD=admin
       - MINIO_DEFAULT_BUCKETS=your_bucket_name
     command: server --console-address ":9001" /data
       

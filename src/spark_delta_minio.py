@@ -38,6 +38,6 @@ data_df = spark.read.format('csv').option('header', 'true').option('inferSchema'
 data_df \
     .write \
     .format("delta") \
-    .parti
+    .partitionBy("school") \
     .mode("overwrite") \
     .save(f"s3a://{minio_bucket}/data-delta")
